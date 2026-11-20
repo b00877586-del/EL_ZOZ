@@ -1,0 +1,461 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL_ZOZ | Personal Website</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #061b2b;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(3, 19, 32, 0.85);
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #61d5ff;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #dcecf5;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #55d5ff;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 10% 70px;
+    position: relative;
+    overflow: hidden;
+    background:
+    linear-gradient(90deg, rgba(3,18,31,.92), rgba(3,24,42,.45)),
+    radial-gradient(ellipse at 75% 45%, #176b91, #082c45 45%, #041725 85%);
+}
+
+.hero::before {
+    content: "🐋";
+    position: absolute;
+    font-size: clamp(180px, 35vw, 430px);
+    right: 5%;
+    top: 25%;
+    opacity: .18;
+    filter: blur(1px);
+    animation: swim 7s ease-in-out infinite;
+}
+
+@keyframes swim {
+    0%,100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-25px) translateX(-15px);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.small-title {
+    color: #62d9ff;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 105px);
+    line-height: 1.2;
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(63,195,255,.5);
+    letter-spacing: 4px;
+}
+
+.hero h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #c1eaff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #b1c8d8;
+    line-height: 1.9;
+    max-width: 500px;
+    font-size: 14px;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.primary {
+    background: #36bce9;
+    color: #031724;
+    font-weight: 700;
+    box-shadow: 0 0 25px rgba(54,188,233,.3);
+}
+
+.secondary {
+    border: 1px solid #48c9f5;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px #36bce9;
+}
+
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    color: #4bc9f3;
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.about {
+    background: #082337;
+}
+
+.about-box {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(90,205,255,.15);
+    padding: 35px;
+    border-radius: 12px;
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+    line-height: 2;
+    color: #b9d0df;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: #0b2b40;
+    border: 1px solid rgba(73,193,239,.16);
+    padding: 30px;
+    border-radius: 10px;
+    transition: .35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #43c8f5;
+    box-shadow: 0 10px 35px rgba(0,170,230,.12);
+}
+
+.card .icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #62d5ff;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #a9c1d0;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.skills {
+    background: #082337;
+}
+
+.skill {
+    margin-bottom: 25px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.bar {
+    height: 7px;
+    background: #173b50;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #168dbd, #58d8ff);
+    border-radius: 20px;
+}
+
+.contact {
+    text-align: center;
+    background: #061b2b;
+}
+
+.contact p {
+    color: #a9c1d0;
+    margin-bottom: 25px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #7896a8;
+    font-size: 12px;
+    background: #031522;
+}
+
+@media(max-width:700px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    nav a {
+        margin-left: 9px;
+        font-size: 10px;
+    }
+
+    .hero {
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .hero::before {
+        right: -25%;
+        top: 35%;
+        opacity: .12;
+    }
+
+    section {
+        padding: 75px 7%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EL_ZOZ</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="small-title">WELCOME TO MY WORLD</div>
+
+        <h1>EL_ZOZ</h1>
+
+        <h2>Creative Mind. Unique Identity.</h2>
+
+        <p>
+            Welcome to my personal space.
+            A place where creativity meets ambition,
+            ideas become reality, and every detail
+            tells a story.
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="btn primary">Discover More</a>
+            <a href="#contact" class="btn secondary">Get In Touch</a>
+        </div>
+
+    </div>
+</div>
+
+<section class="about" id="about">
+
+    <div class="section-title">
+        <span>WHO AM I</span>
+        <h2>About Me</h2>
+    </div>
+
+    <div class="about-box">
+        <p>
+            I believe that every person has a unique story.
+            My journey is about learning, creating,
+            exploring new opportunities and building
+            something meaningful.
+            <br><br>
+            This is my digital identity.
+            Welcome to my world.
+        </p>
+    </div>
+
+</section>
+
+<section id="services">
+
+    <div class="section-title">
+        <span>WHAT I DO</span>
+        <h2>My Interests</h2>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>Technology</h3>
+            <p>
+                Exploring technology and discovering
+                new digital possibilities.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>Creativity</h3>
+            <p>
+                Turning creative ideas into
+                unique experiences.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🚀</div>
+            <h3>Development</h3>
+            <p>
+                Learning new skills and
+                continuously improving.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="skills" id="skills">
+
+    <div class="section-title">
+        <span>MY ABILITIES</span>
+        <h2>My Skills</h2>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">
+            <span>Creativity</span>
+            <span>90%</span>
+        </div>
+        <div class="bar">
+            <div class="progress" style="width:90%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">
+            <span>Communication</span>
+            <span>80%</span>
+        </div>
+        <div class="bar">
+            <div class="progress" style="width:80%"></div>
+        </div>
+    </div>
+
+    <div class="skill">
+        <div class="skill-name">
+            <span>Technology</span>
+            <span>75%</span>
+        </div>
+        <div class="bar">
+            <div class="progress" style="width:75%"></div>
+        </div>
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <span>LET'S CONNECT</span>
+        <h2>Contact Me</h2>
+    </div>
+
+    <p>Have an idea or want to get in touch?</p>
+
+    <a href="mailto:your@email.com" class="btn primary">
+        Send Me an Email
+    </a>
+
+</section>
+
+<footer>
+    © 2026 EL_ZOZ. All Rights Reserved.
+</footer>
+
+</body>
+</html>
+```
